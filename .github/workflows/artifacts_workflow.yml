@@ -44,8 +44,9 @@ jobs: # Jobs defined in the workflow
         - name: Show S3 bucket website URL
           run: |
             aws cloudformation describe-stacks \
-                --stack-name uda-artifact \
-                --query 'Stacks[0].Outputs[?OutputKey==`ArtifactBucketWebsiteURL`].OutputValue' \
-                --output text
+            --stack-name uda-artifact \
+            --query 'Stacks[0].Outputs[?OutputKey==`ArtifactBucketWebsiteURL`].OutputValue' \
+            --output text | xargs -I {} echo "S3 Bucket Website URL: {}"
+    
 
             
