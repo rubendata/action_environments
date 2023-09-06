@@ -25,4 +25,6 @@ jobs: # Jobs defined in the workflow
       with:
         name: udatest
         template: udatest.yml
+        no-fail-on-empty-changeset: "1"
+
         
